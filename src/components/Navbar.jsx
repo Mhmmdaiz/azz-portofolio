@@ -33,7 +33,7 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentY = window.scrollY;
       setIsScrolled(currentY > 50);
-      
+
       // Sembunyikan navbar saat scroll turun, tampilkan saat scroll naik
       setIsVisible(currentY < lastScrollY.current || currentY < 100);
       lastScrollY.current = currentY;
@@ -56,10 +56,12 @@ export default function Navbar() {
       `}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        
         {/* Logo */}
-        <a href="#" className="font-retro text-3xl text-white hover:text-han-green transition-colors select-none uppercase tracking-tighter">
-          aiz<span className="text-han-green">.</span>
+        <a
+          href="#"
+          className="font-retro text-3xl text-white hover:text-han-green transition-colors select-none uppercase tracking-tighter"
+        >
+          azz<span className="text-han-green">.</span>
         </a>
 
         {/* Desktop Nav Links */}
@@ -73,13 +75,6 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          
-          <a
-            href="#contact"
-            className="ml-4 font-pixel text-[9px] uppercase tracking-widest bg-han-green text-black px-4 py-2 border-2 border-black hover:bg-green-400 transition-all brutal-shadow-black active:translate-y-0.5"
-          >
-            Hire Me
-          </a>
         </div>
 
         {/* Mobile Hamburger Button */}
@@ -88,7 +83,11 @@ export default function Navbar() {
           className="md:hidden w-10 h-10 border-2 border-zinc-700 flex items-center justify-center text-white hover:border-han-green hover:text-han-green transition-colors bg-zinc-950"
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </button>
       </div>
 
@@ -115,7 +114,7 @@ export default function Navbar() {
                 {link.label}
               </motion.a>
             ))}
-            
+
             <motion.a
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
