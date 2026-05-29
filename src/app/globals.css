@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  --color-han-green: #449e62;
+  --color-han-yellow: #e1b12c;
+  --color-han-orange: #f0932b;
+  --color-han-red: #eb4d4b;
+  --color-han-dark: #121212;
+  --color-han-cream: #f5f6fa;
+  --color-han-blue: #4834d4;
+
+  --font-pixel: var(--font-press-start-2p), monospace;
+  --font-retro: var(--font-vt323), monospace;
+  --font-sans: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+/* Offset scroll anchor agar konten section tidak tertutup sticky Navbar */
+html {
+  scroll-padding-top: 72px;
+}
+
+/* Custom Scrollbar Brutal */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+  border-left: 3px solid #333;
+}
+.light ::-webkit-scrollbar-track {
+  background: #f5f6fa;
+  border-left: 3px solid #ccc;
+}
+::-webkit-scrollbar-thumb {
+  background: #449e62;
+  border: 3px solid #121212;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #449e62;
+  border: 3px solid #f5f6fa;
+}
+
+/* Efek Grain Pasir Halus Y2K */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animasi Teks Berjalan */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+
+/* Animasi Floating Stiker */
+@keyframes stickerFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+.sticker-float {
+  animation: stickerFloat 6s ease-in-out infinite;
+}
+
+/* Kursor Brutal Khusus */
+body {
+  cursor: cell;
+}
+a,
+button {
+  cursor: pointer;
+}
+
+/* Bayangan Brutalis Keras (Hard Shadow) */
+.brutal-shadow-yellow {
+  box-shadow: 4px 4px 0px 0px #e1b12c;
+}
+.brutal-shadow-red {
+  box-shadow: 4px 4px 0px 0px #eb4d4b;
+}
+.brutal-shadow-black {
+  box-shadow: 6px 6px 0px 0px #000;
+}
+.brutal-shadow-green {
+  box-shadow: 4px 4px 0px 0px #449e62;
+}
+.brutal-border {
+  border: 3px solid #121212;
+}
+
+/* Bento Grid Card utility */
+.bento-card {
+  background-color: #1a1a1a;
+  border: 3px solid #121212;
+  box-shadow: 5px 5px 0px 0px #000;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.light .bento-card {
+  background-color: #ffffff;
+  border: 3px solid #121212;
+  box-shadow: 5px 5px 0px 0px #121212;
+}
+.bento-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0px 0px #000;
+}
+.light .bento-card:hover {
+  box-shadow: 7px 7px 0px 0px #121212;
+}
+
+/* Light/Dark mode state classes on theme toggle */
+.light {
+  background-color: #f5f6fa !important;
+  color: #121212 !important;
+}
+.light header {
+  background-color: #e3e4e9 !important;
+  border-bottom-color: #121212 !important;
+}
+.light main, .light section {
+  color: #121212 !important;
+}
+.light h1, .light h2, .light h3, .light h4, .light p {
+  color: #121212 !important;
+}
+.light .text-zinc-400 {
+  color: #555555 !important;
+}
+.light .text-zinc-500 {
+  color: #777777 !important;
+}
+.light .bg-zinc-900 {
+  background-color: #ffffff !important;
+  border-color: #121212 !important;
+}
+.light .bg-zinc-950 {
+  background-color: #e8e9ef !important;
+  border-top-color: #121212 !important;
+}
+.light svg path[stroke="white"] {
+  stroke: #121212 !important;
+}
+
+/* Pemisah section — garis tipis zinc */
+.section-divider {
+  border-top: 2px solid #27272a;
+  margin: 0 1.5rem;
+}
+
+/* Smooth custom cursor hidden rules */
+@media (min-width: 768px) {
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
