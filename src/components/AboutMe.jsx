@@ -143,30 +143,6 @@ export default function AboutMe() {
               </span>
             </div>
           </motion.div>
-
-          {/* Card 3: Skills */}
-          <motion.div
-            custom={2}
-            initial="hidden"
-            whileInView="visible"
-            variants={cardVariants}
-            className="lg:col-span-3 flex flex-col justify-between bg-zinc-900 border-4 border-zinc-800 p-8 shadow-[8px_8px_0px_0px_#000]"
-          >
-            <h3 className="font-retro text-3xl font-black text-white uppercase mb-4">
-              Senjata Utama
-            </h3>
-            <div className="flex flex-wrap gap-4">
-              {skillsList.map((skill, index) => (
-                <a
-                  key={index}
-                  href={skill.url}
-                  className="flex items-center gap-3 border-2 border-black bg-zinc-950 px-5 py-3 hover:bg-han-green hover:text-black transition-colors font-pixel text-[10px] font-bold"
-                >
-                  <CheckCircle2 className="w-4 h-4" /> {skill.name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

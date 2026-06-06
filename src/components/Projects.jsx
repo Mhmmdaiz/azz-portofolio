@@ -7,17 +7,79 @@ import ProjectModal from "./ProjectModal";
 
 const projects = [
   {
-    id: "daemonium-store",
-    title: "Daemonium Streetwear",
-    subtitle: "E-Commerce store dengan brutalist aesthetic.",
-    category: "Web Development",
-    desc: "Platform toko daring pakaian streetwear kustom bernama DAEMONIUM. Menampilkan desain visual brutal kontemporer, optimasi UX kaku, manajemen inventori produk, dan integrasi checkout cepat.",
-    image: "https://api.microlink.io?url=https%3A%2F%2Fdaemonium.vercel.app&screenshot=true&embed=screenshot.url",
-    tech: ["Next.js", "Tailwind", "Framer Motion"],
+    id: "snapazzhot",
+
+    title: "Snapazzhot Photobooth",
+
+    subtitle: "Modern Web Photobooth Experience",
+
+    category: "Web Application",
+
+    description:
+      "Aplikasi photobooth berbasis web yang memungkinkan pengguna mengambil foto langsung dari browser, menggunakan filter real-time, memilih frame, dan mengunduh hasil akhir tanpa instalasi aplikasi.",
+
+    features: [
+      "Real-time Camera Capture",
+      "Multiple Layouts",
+      "Custom Frames",
+      "Photo Filters",
+      "Countdown Timer",
+      "Download PNG",
+      "ZIP Export",
+      "Responsive Design",
+    ],
+
+    image:
+      "https://api.microlink.io?url=https%3A%2F%2Fsnapazzhot.web.id&screenshot=true&embed=screenshot.url",
+
+    tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase"],
+
     categoryColor: "text-han-green",
-    badgeText: "Project 01",
+
+    badgeText: "Featured",
+
     badgeBg: "bg-han-green",
-    link: "https://daemonium.vercel.app",
+
+    liveUrl: "https://snapazzhot.web.id",
+
+    githubUrl: "#",
+  },
+
+  {
+    id: "daemonium-store",
+
+    title: "Daemonium Streetwear",
+
+    subtitle: "Brutalist E-Commerce Platform",
+
+    category: "Web Development",
+
+    description:
+      "Platform e-commerce streetwear dengan pendekatan desain brutalist modern, katalog produk, dan pengalaman visual yang kuat.",
+
+    features: [
+      "Product Catalog",
+      "Product Detail",
+      "Responsive Design",
+      "Smooth Animation",
+      "Brutalist UI",
+      "Fast Navigation",
+    ],
+
+    image:
+      "https://api.microlink.io?url=https%3A%2F%2Fdaemonium.vercel.app&screenshot=true&embed=screenshot.url",
+
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+
+    categoryColor: "text-han-orange",
+
+    badgeText: "Project 01",
+
+    badgeBg: "bg-han-orange",
+
+    liveUrl: "https://daemonium.vercel.app",
+
+    githubUrl: "#",
   },
 ];
 
@@ -26,7 +88,11 @@ const cardVariants = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: [0.215, 0.61, 0.355, 1] },
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
   }),
 };
 
@@ -45,8 +111,8 @@ export default function Projects() {
       - Menambahkan `pt-32 md:pt-28` untuk memberikan ruang aman agar konten tidak terpotong navbar fixed pada resolusi mobile dan desktop.
       - Menambahkan `scroll-mt-24` agar ketika id target di-scroll, posisinya berhenti tepat di bawah navbar Anda.
     */
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className="max-w-7xl mx-auto px-6 pt-32 pb-24 md:pt-28 z-10 relative scroll-mt-24"
     >
       {/* Judul Section */}
@@ -60,7 +126,8 @@ export default function Projects() {
           </h2>
         </div>
         <p className="font-sans text-sm text-zinc-400 max-w-sm leading-relaxed">
-          Kumpulan karya terpilih — fokus penuh pada rekayasa antarmuka web modern, fungsionalitas murni, dan konversi tinggi.
+          Kumpulan karya terpilih — fokus penuh pada rekayasa antarmuka web
+          modern, fungsionalitas murni, dan konversi tinggi.
         </p>
       </div>
 
@@ -88,7 +155,9 @@ export default function Projects() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
               {/* Badge kategori */}
-              <span className={`absolute top-3 left-3 font-pixel text-[8px] uppercase tracking-wider px-3 py-1.5 border-2 border-black ${project.badgeBg} text-black font-bold shadow-[2px_2px_0px_0px_#000]`}>
+              <span
+                className={`absolute top-3 left-3 font-pixel text-[8px] uppercase tracking-wider px-3 py-1.5 border-2 border-black ${project.badgeBg} text-black font-bold shadow-[2px_2px_0px_0px_#000]`}
+              >
                 {project.badgeText}
               </span>
 
@@ -98,13 +167,16 @@ export default function Projects() {
                   <div className="w-12 h-12 bg-zinc-950 text-white flex items-center justify-center border-2 border-zinc-700 hover:border-white transition-colors shadow-[3px_3px_0px_0px_#000]">
                     <Eye className="w-5 h-5" />
                   </div>
-                  {project.link !== "#" && (
+
+                  {/* FIX: Perbaikan field project.link menjadi project.liveUrl */}
+                  {project.liveUrl && project.liveUrl !== "#" && (
                     <a
-                      href={project.link}
+                      href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="direct-link w-12 h-12 bg-han-green text-black flex items-center justify-center border-2 border-black hover:bg-white transition-colors shadow-[3px_3px_0px_0px_#000]"
                       title="Buka Live Site"
+                      onClick={(e) => e.stopPropagation()} // PENTING: Mencegah trigger ke parent (Modal)
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>
@@ -115,7 +187,9 @@ export default function Projects() {
 
             {/* Info Project */}
             <div className="p-6 space-y-3">
-              <span className={`font-pixel text-[8px] uppercase tracking-widest block ${project.categoryColor}`}>
+              <span
+                className={`font-pixel text-[8px] uppercase tracking-widest block ${project.categoryColor}`}
+              >
                 {project.category}
               </span>
 
@@ -123,17 +197,19 @@ export default function Projects() {
                 <h3 className="font-retro text-2xl font-bold text-white group-hover:text-han-green transition-colors leading-tight">
                   {project.title}
                 </h3>
-                <p className="font-sans text-xs text-zinc-400 leading-relaxed line-clamp-2">{project.subtitle}</p>
+                <p className="font-sans text-xs text-zinc-400 leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
               </div>
 
               {/* Tech Stack Chips */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {project.tech.map((t) => (
+                {project.features?.slice(0, 3).map((feature) => (
                   <span
-                    key={t}
-                    className="font-pixel text-[8px] uppercase tracking-wide px-2.5 py-1 border-2 border-black text-zinc-300 bg-zinc-950 shadow-[2px_2px_0px_0px_#000]"
+                    key={feature}
+                    className="font-pixel text-[7px] uppercase px-2 py-1 border border-zinc-700 text-zinc-400"
                   >
-                    {t}
+                    {feature}
                   </span>
                 ))}
               </div>

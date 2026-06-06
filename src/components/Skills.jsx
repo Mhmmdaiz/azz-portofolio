@@ -40,7 +40,11 @@ const cardVariants = {
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: [0.215, 0.61, 0.355, 1] },
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
   }),
 };
 
@@ -55,8 +59,10 @@ const barVariants = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="max-w-7xl mx-auto px-6 pt-32 pb-24 md:pt-28 z-10 relative scroll-mt-24">
-      
+    <section
+      id="skills"
+      className="max-w-7xl mx-auto px-6 pt-32 pb-24 md:pt-28 z-10 relative scroll-mt-24"
+    >
       {/* Judul Section */}
       <div className="mb-16 border-b-4 border-zinc-800 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
@@ -68,7 +74,8 @@ export default function Skills() {
           </h2>
         </div>
         <p className="font-sans text-sm text-zinc-400 max-w-sm leading-relaxed">
-          Arsitektur teknologi tervalidasi yang saya gunakan untuk merekayasa antarmuka digital berperforma tinggi dan terkonversi dengan baik.
+          Arsitektur teknologi tervalidasi yang saya gunakan untuk merekayasa
+          antarmuka digital berperforma tinggi dan terkonversi dengan baik.
         </p>
       </div>
 
@@ -86,7 +93,9 @@ export default function Skills() {
           >
             {/* Header Kategori */}
             <div className="flex items-center gap-4">
-              <div className={`w-14 h-14 ${cat.colorClass} border-4 border-black flex items-center justify-center text-2xl shadow-[4px_4px_0px_0px_#000] text-black`}>
+              <div
+                className={`w-14 h-14 ${cat.colorClass} border-4 border-black flex items-center justify-center text-2xl shadow-[4px_4px_0px_0px_#000] text-black`}
+              >
                 {cat.icon}
               </div>
               <div>
@@ -112,7 +121,7 @@ export default function Skills() {
                       {skill.level}%
                     </span>
                   </div>
-                  
+
                   {/* Konstruksi Progress Bar Kasar Brutalist */}
                   <div className="w-full h-3 bg-zinc-950 border-2 border-zinc-800 relative overflow-hidden">
                     <motion.div
@@ -130,34 +139,6 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
-
-      {/* Arsenal Row Bawah */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="mt-16 pt-10 border-t-4 border-zinc-800"
-      >
-        <p className="font-pixel text-[9px] text-zinc-500 uppercase tracking-widest text-center mb-8">
-          Full Stack Verified
-        </p>
-        <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-          {["HTML", "CSS", "JavaScript", "React", "Next.js", "Tailwind CSS", "Node.js", "MySQL", "Firebase", "Supabase"].map((tech, i) => (
-            <motion.span
-              key={tech}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.04 + 0.2 }}
-              whileHover={{ y: -4 }}
-              className="font-pixel text-[9px] uppercase tracking-wide px-4 py-2 border-2 border-zinc-800 bg-zinc-950 text-zinc-400 hover:border-han-green hover:text-black hover:bg-han-green font-bold transition-all cursor-default shadow-[3px_3px_0px_0px_#000]"
-            >
-              {tech}
-            </motion.span>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }
